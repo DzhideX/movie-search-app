@@ -25,8 +25,11 @@ class Navigation extends React.Component {
     render(){
         return(
             <div className='navigation'>
-                <input placeholder="Search" value={this.state.value} onChange={this.updateInput}/>
-                <button onClick={this.handleSubmit}> Search </button>
+                <h3 className='navigation-logo'> MovieSearch </h3>
+                <div className='navigation-search'>
+                    <input className='navigation-search__input' placeholder="Search for some movies.." value={this.state.value} onChange={this.updateInput}/>
+                    <button className='navigation-search__button' onClick={this.handleSubmit}> Search </button>
+                </div>
             </div>
         );
     };

@@ -4,7 +4,7 @@ import Navigation from './Navigation';
 
 function App() {
   return (
-    <div>
+    <div className='app'>
         <Navigation />
         <Movies />
     </div>

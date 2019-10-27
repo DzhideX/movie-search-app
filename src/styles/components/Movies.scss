@@ -1,5 +1,40 @@
-.movies-container {
-    // display: flex;
-    // // flex-direction: row;
-    // flex-wrap: wrap;
+.movies-container-large {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.movies-container-small {
+    width: 90%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    // background-color: rgb(143, 143, 143);
+    justify-items: center;
+}
+
+.movie-thumbnail{
+    height: 300px;
+    width: 220px;
+    margin-top: 2rem;
+    background: none;
+    background-color: #F8F8F8;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    .movie-thumbnail-no-image-icon{
+        height: 50px;
+        margin-top: 90px;
+        margin-bottom: 90px;
+    }
+    .movie-thumbnail__image{
+        height: 235px;
+        width: 170px;
+        margin-bottom: 0.5rem;
+    }
 }

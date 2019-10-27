@@ -1,26 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import noImage from '../images/340719-200.png';
 
 const Movie = ({index,title,image}) => {
     return (
-        <div>
-            <p key={index}> {title} </p>
-            <img src={image} alt={index}/> 
+        <div className='movie-thumbnail'>
+            {image === 'N/A' ? <img className='movie-thumbnail-no-image-icon' src={noImage} alt='not loaded'/> : <img className='movie-thumbnail__image'  src={image} alt={index}/>} 
+            <p className='movie-thumbnail__title'> {title} </p>
         </div>
     );
 };
 
-class Movies extends React.Component { 
+class Movies extends React.Component {
 
     render(){
-        console.log('asdas',this.props)
         return(
-            <div className='movies-container'>
-            {this.props.movies ? this.props.movies.map((movie,index) => {
-                return <Movie index={index} title={movie.Title} image={movie.Poster}/>
-            }) : null}
-            {this.props.fetching && <p> Loading.. </p>}
-            {this.props.error && <p> There was an error..</p>}
+            <div className='movies-container-large'>
+                <div className='movies-container-small'>
+                        {this.props.movies ? this.props.movies.map((movie,index) => {
+                            return <Movie key={index} title={movie.Title} image={movie.Poster}/>
+                        }) : null}
+                        {this.props.fetching && <p> Loading.. </p>}
+                        {this.props.error && <p> There was an error..</p>}
+                </div>
             </div>
         );
     }
