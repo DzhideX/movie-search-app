@@ -13,6 +13,18 @@ const Movie = ({index,title,image}) => {
 
 class Movies extends React.Component {
 
+    displayMessage = () => {
+        if(this.props.fetching){
+            return <p> Loading.. </p>
+        }else if(this.props.error){
+            return <p> There was an error..</p>
+        }
+
+        // Previous solution
+        // {this.props.fetching && <p> Loading.. </p>}
+        // {this.props.error && <p> There was an error..</p>}
+    }
+
     render(){
         return(
             <div className='movies-container-large'>
@@ -20,8 +32,7 @@ class Movies extends React.Component {
                         {this.props.movies ? this.props.movies.map((movie,index) => {
                             return <Movie key={index} title={movie.Title} image={movie.Poster}/>
                         }) : null}
-                        {this.props.fetching && <p> Loading.. </p>}
-                        {this.props.error && <p> There was an error..</p>}
+                        {this.props.fetching || this.props.error ? this.displayMessage() : null}
                 </div>
             </div>
         );
