@@ -10,3 +10,11 @@
     display: flex;
     flex-direction: column;
 }
+
+.off{
+    visibility: hidden;
+}
+
+.on {
+    visibility: visible;
+}

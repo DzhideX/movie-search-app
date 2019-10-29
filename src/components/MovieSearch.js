@@ -15,9 +15,9 @@ class Movies extends React.Component {
 
     displayMessage = () => {
         if(this.props.fetching){
-            return <p> Loading.. </p>
+            return <p className='message-container__message'> Loading.. </p>
         }else if(this.props.error){
-            return <p> There was an error..</p>
+            return <p className='message-container__message'> There was an error..</p>
         }
 
         // Previous solution
@@ -26,15 +26,24 @@ class Movies extends React.Component {
     }
 
     render(){
+        console.log(JSON.stringify(this.props.movies) === '[]')
         return(
-            <div className='movies-container-large'>
-                <div className='movies-container-small'>
-                        {this.props.movies ? this.props.movies.map((movie,index) => {
-                            return <Movie key={index} title={movie.Title} image={movie.Poster}/>
-                        }) : null}
-                        {this.props.fetching || this.props.error ? this.displayMessage() : null}
-                </div>
-            </div>
+            <React.Fragment>
+                {this.props.movies && JSON.stringify(this.props.movies) !== '[]' && 
+                <div className='movies-container-large'>
+                    {this.props.movies ? this.props.movies.map((movie,index) => {
+                        return <Movie key={index} title={movie.Title} image={movie.Poster}/>
+                    }) : null}
+                </div>}
+
+                {this.props.fetching || this.props.error ? (
+                    <div className='message-container'>
+                        {this.displayMessage()}
+                    </div>
+                ) : null}
+                
+            </React.Fragment>
+            
         );
     }
 };

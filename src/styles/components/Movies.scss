@@ -1,18 +1,24 @@
 .movies-container-large {
     width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
-}
-
-.movies-container-small {
-    width: 90%;
-    height: 100%;
+    // margin-bottom: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    // background-color: rgb(143, 143, 143);
     justify-items: center;
+}
+
+.message-container{
+    width: 100%;
+    height: 100vh - 8.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .message-container__message{
+        color:#71A593;
+        font-size: 1.5rem;
+        margin: 0;
+    }
 }
 
 .movie-thumbnail{
