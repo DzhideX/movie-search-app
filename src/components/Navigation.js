@@ -22,12 +22,18 @@ class Navigation extends React.Component {
         }
     }
 
+    handleKeyPress = (target) => {
+        if(this.state.value && target.charCode===13){
+            store.dispatch(getMovies(this.state.value));
+        }
+    }
+
     render(){
         return(
             <div className='navigation'>
                 <h3 className='navigation-logo'> MovieSearch </h3>
                 <div className='navigation-search'>
-                    <input className='navigation-search__input' placeholder="Search for some movies.." value={this.state.value} onChange={this.updateInput}/>
+                    <input className='navigation-search__input' placeholder="Search for some movies.." onKeyPress={this.handleKeyPress} value={this.state.value} onChange={this.updateInput}/>
                     <button className='navigation-search__button' onClick={this.handleSubmit}> Search </button>
                 </div>
             </div>
