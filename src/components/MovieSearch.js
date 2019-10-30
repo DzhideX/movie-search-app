@@ -1,11 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import noImage from '../images/340719-200.png';
+import Modal from 'react-modal';
+import axios from 'axios';
 
-const Movie = ({index,title,image,year,type}) => {
+const Movie = ({index,title,image,year,type,id}) => {
 
+    const [movieData, setMovieData] = useState([]);
+    useEffect(() => {
+        axios.get(`http://www.omdbapi.com/?apikey=10d92ac&i=${id}`).then(response=> {
+            setMovieData(response.data);
+        });
+    });
     const [hovered, setHovered] = useState(false);
     const toggleHover = () => setHovered(!hovered);
+    const [modal, setModal] = useState(false);
+    const openModal = () => {
+        setModal(true);
+    }
+    const closeModal=  () => {
+        setModal(false);
+        setHovered(false);
+    }
 
     return (
         <div className='movie-thumbnail'>
@@ -21,7 +37,14 @@ const Movie = ({index,title,image,year,type}) => {
                 <p> {year} </p>
                 <p className='movie-thumbnail-more-info__description'> Type: </p>
                 <p> {type} </p>
-                <button className='movie-thumbnail-more-info__button'> More info </button>
+                <button onClick={openModal} className='movie-thumbnail-more-info__button'> More info </button>
+                <Modal 
+                isOpen={modal}
+                ariaHideApp={false} 
+                >
+                    <button onClick={closeModal}> Close </button>
+                    {movieData ? <p> {movieData.Title}</p> : null}
+                </Modal>
             </div>}
         </div>
     );
@@ -48,7 +71,7 @@ class Movies extends React.Component {
                 {this.props.movies && JSON.stringify(this.props.movies) !== '[]' && 
                 <div className='movies-container-large'>
                     {this.props.movies ? this.props.movies.map((movie,index) => {
-                        return <Movie key={index} title={movie.Title} year={movie.Year} type={movie.Type} image={movie.Poster}/>
+                        return <Movie key={index} title={movie.Title} year={movie.Year} type={movie.Type} image={movie.Poster} id={movie.imdbID}/>
                     }) : null}
                 </div>}
 
