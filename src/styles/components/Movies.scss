@@ -80,7 +80,18 @@
         .movie-thumbnail-more-info__button:focus{
             transform: translateY(1px);
         }
-        
     }
 }
 
+.movie-thumbnail-more-info-modal{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img{
+        height: 235px;
+        width: 170px;
+    }
+}
