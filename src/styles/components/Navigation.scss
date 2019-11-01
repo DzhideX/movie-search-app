@@ -5,10 +5,15 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    @media(max-width: 600px){
+        flex-direction: column;
+    }
     .navigation-logo{
-        // margin: 0 0 0 3rem;
         font-size: 1.5rem;
         color:$olive-green;
+        @media(max-width: 600px){
+            flex-direction: column;
+        }
     }
     .navigation-search{
         // margin: 0 3rem 0 0;

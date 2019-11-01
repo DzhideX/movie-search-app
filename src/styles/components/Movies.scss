@@ -4,6 +4,15 @@
     display: grid;
     padding: 0 2rem 2rem 2rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    @media(max-width: 1000px){
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media(max-width: 770px){
+        grid-template-columns: 1fr 1fr;
+    }
+    @media(max-width: 550px){
+        grid-template-columns: 1fr;
+    }
     justify-items: center;
 }
 
@@ -88,10 +97,61 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    img{
-        height: 235px;
-        width: 170px;
+    .movie-thumbnail-more-info-modal-top{
+        width: 100%;
+        display: flex;
+        .movie-thumbnail-more-info-modal-image{
+            height: 235px;
+            width: 170px;
+            margin: 1rem 0 0 1rem;
+        }
+        .movie-thumbnail-more-info-modal-no-image-icon{
+            height: 100px;
+            width: 100px;
+            margin: 1rem 0 0 1rem;
+        }
+        .movie-thumbnail-more-info-modal-top-right{
+            display: flex;
+            flex-direction: column;
+            margin-top: 1rem;
+            p{
+                margin: 0 0 0.9rem 2rem;
+                span{
+                    color: $olive-green;
+                    margin-right: 0.7rem;
+                }
+            }
+        }
+    }
+    .movie-thumbnail-more-info-modal-bottom{
+        
+        p{
+            margin: 0.5rem 0 0.5rem 1rem;
+        }
+        span{
+            color: $olive-green;
+            margin-right: 0.7rem;
+        }
+        .movie-thumbnail-more-info-modal-bottom-cards{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 1rem;
+            .movie-thumbnail-more-info-modal-bottom-cards__card{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+                .movie-thumbnail-more-info-modal-bottom-cards__rating-image{
+                    height: 3rem;
+                    width: 9.5rem;
+                }
+                p{
+                    margin:1rem 0 0 0;
+                    font-size: 1.15rem;
+                }
+            }
+        }
     }
 }
