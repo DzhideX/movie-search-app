@@ -18,10 +18,14 @@
 
 .message-container{
     width: 100%;
-    height: 100vh - 8.5vh;
+    height: 20rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    @media(max-width: 600px){
+        text-align: center;
+        padding: 0 0.5rem 0 0.5rem;
+    }
     .message-container__message{
         color:#71A593;
         font-size: 1.5rem;
@@ -126,7 +130,7 @@
     .movie-thumbnail-more-info-modal-bottom{
         
         p{
-            margin: 0.5rem 0 0.5rem 1rem;
+            margin: 0.7rem 0 0.5rem 1rem;
         }
         span{
             color: $olive-green;
