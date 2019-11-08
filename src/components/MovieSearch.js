@@ -11,20 +11,11 @@ const MovieRating = ({rating}) => {
 
     const renderImage = () => {
         if(rating.Source === 'Internet Movie Database'){
-            return {
-                src: imdb,
-                alt: 'imdb'
-            };
+            return { src: imdb, alt: 'imdb' };
         }else if(rating.Source === 'Rotten Tomatoes'){
-            return {
-                src: rotten,
-                alt: 'rotten tomatoes'
-            };
+            return { src: rotten, alt: 'rotten tomatoes' };
         }else if(rating.Source === 'Metacritic'){
-            return {
-                src: meta,
-                alt: 'metacritic'
-            };
+            return { src: meta, alt: 'metacritic' };
         }
     }
 
