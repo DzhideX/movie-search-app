@@ -102,7 +102,7 @@ const Movie = ({index,title,image,year,type,id}) => {
     );
 };
 
-class Movies extends React.Component {
+export class Movies extends React.Component {
 
     displayMessage = () => {
         if(this.props.fetching){

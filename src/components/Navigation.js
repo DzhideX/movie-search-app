@@ -3,7 +3,7 @@ import { getMovies } from '../actions/moviesActions';
 import { store } from '../store/configureStore';
 import { connect } from 'react-redux';
 
-class Navigation extends React.Component {
+export class Navigation extends React.Component {
 
     state = {
         value: '',
