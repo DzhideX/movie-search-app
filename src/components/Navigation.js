@@ -28,8 +28,8 @@ export const Navigation = () =>{
             <div data-test='navigation' className='navigation'>
                 <h3 data-test='navigation-logo' className='navigation-logo'> MovieSearch </h3>
                 <div className='navigation-search'>
-                    <input className='navigation-search__input' placeholder="Search for some movies.." onKeyPress={handleKeyPress} value={value} onChange={updateInput}/>
-                    <button className='navigation-search__button' onClick={handleSubmit}> Search </button>
+                    <input data-test='navigation-input' className='navigation-search__input' placeholder="Search for some movies.." onKeyPress={handleKeyPress} value={value} onChange={updateInput}/>
+                    <button data-test='navigation-search-button' className='navigation-search__button' onClick={handleSubmit}> Search </button>
                 </div>
             </div>
         );

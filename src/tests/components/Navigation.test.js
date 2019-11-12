@@ -23,4 +23,14 @@ describe('Navigation component', () => {
         expect(logo.length).toBe(1);
     });
 
+    test('Navigation input renders with no errors',()=>{
+        const input = findByAttribute(component,'navigation-input');
+        expect(input.length).toBe(1);
+    });
+
+    test('Navigation search button renders with no errors',()=>{
+        const button = findByAttribute(component,'navigation-search-button');
+        expect(button.length).toBe(1);
+    });
+
 });

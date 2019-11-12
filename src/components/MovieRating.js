@@ -16,9 +16,9 @@ const MovieRating = ({rating}) => {
     }
 
     return (
-        <div className='movie-thumbnail-more-info-modal-bottom-cards__card'>
-            <img className='movie-thumbnail-more-info-modal-bottom-cards__rating-image' src={renderImage().src} alt={renderImage().alt}/>
-            <p className='movie-thumbnail-more-info-modal-bottom-cards__rating-value'> {rating.Value} </p>
+        <div data-test='movie-rating-card' className='movie-thumbnail-more-info-modal-bottom-cards__card'>
+            <img data-test='movie-rating-card-image' className='movie-thumbnail-more-info-modal-bottom-cards__rating-image' src={renderImage().src} alt={renderImage().alt}/>
+            <p data-test='movie-rating-card-value' className='movie-thumbnail-more-info-modal-bottom-cards__rating-value'> {rating.Value} </p>
         </div>
     );
 };

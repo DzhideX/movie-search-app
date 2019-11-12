@@ -1,5 +1,5 @@
 import React from 'react';
-import Movies from './MovieSearch';
+import Movies from './Movies';
 import Navigation from './Navigation';
 
 function App() {
