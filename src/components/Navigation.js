@@ -30,8 +30,8 @@ export class Navigation extends React.Component {
 
     render(){
         return(
-            <div className='navigation'>
-                <h3 className='navigation-logo'> MovieSearch </h3>
+            <div data-test='navigation' className='navigation'>
+                <h3 data-test='navigation-logo' className='navigation-logo'> MovieSearch </h3>
                 <div className='navigation-search'>
                     <input className='navigation-search__input' placeholder="Search for some movies.." onKeyPress={this.handleKeyPress} value={this.state.value} onChange={this.updateInput}/>
                     <button className='navigation-search__button' onClick={this.handleSubmit}> Search </button>

@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`app renders with no errors 1`] = `
-"<div className=\\"app\\">
-  <Connect(Navigation) />
-  <Connect(Movies) />
-</div>"
-`;

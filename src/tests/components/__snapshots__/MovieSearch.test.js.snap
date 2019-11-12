@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`app renders with no errors 1`] = `
-"<Fragment>
-  <div className=\\"movies-container-large\\" />
-</Fragment>"
-`;
