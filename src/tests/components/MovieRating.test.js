@@ -39,11 +39,4 @@ describe('Movie rating', () => {
 
     });
 
-    describe('Have no props', () => {
-
-        let wrapper;
-        beforeEach(() => {
-            wrapper = setUp();
-        });
-    });
 });
