@@ -42,4 +42,12 @@ describe('Navigation component', () => {
         expect(button.length).toBe(1);
     });
 
+    // test('Should update state when typing', () => {
+    //     const input = findByAttribute(component,'navigation-input');
+    //     input.simulate('onChange', {
+    //         preventDefault: () => { }
+    //     });
+    //     expect(component.state('value').length).toBeGreaterThan(0);
+    // });
+
 });
