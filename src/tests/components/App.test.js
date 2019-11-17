@@ -1,10 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from '../../components/App';
+import { findByAttribute } from '../../Utils/index';
 
 const setUp = ( props = {}) =>  shallow(<App {...props} />);
-
-const findByAttribute = (component, attribute) =>  component.find(`[data-test='${attribute}']`);
 
 describe('App component', () => {
 

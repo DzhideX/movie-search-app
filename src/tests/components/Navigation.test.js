@@ -1,16 +1,25 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Navigation } from '../../components/Navigation';
+import { findByAttribute,testStore } from '../../Utils/index';
 
-const setUp = ( props = {}) =>  shallow(<Navigation {...props} />);
-
-const findByAttribute = (component, attribute) =>  component.find(`[data-test='${attribute}']`);
+const setUp = ( initialState = {}) =>  {
+    const store = testStore(initialState)
+    const wrapper = shallow(<Navigation store={store} />);
+    return wrapper;
+};
 
 describe('Navigation component', () => {
 
     let component;
     beforeEach(() => {
-        component = setUp();
+        const initialState = {
+            movies: [],
+            fetching: false,
+            fetched: false,
+            error: null
+        };
+        component = setUp(initialState);
     });
 
     test('Navigation renders with no errors',()=>{
