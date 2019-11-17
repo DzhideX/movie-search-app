@@ -13,19 +13,17 @@ export class Movies extends React.Component {
     }
     
     render(){
-        console.log(JSON.stringify(this.props.movies) === '[]')
         return(
             <React.Fragment>
-                {console.log('this.props.movies:', this.props.movies)}
                 { !(this.props.fetching || this.props.error) && 
-                <div className='movies-container-large'>
+                <div data-test='movies-container-large' className='movies-container-large'>
                     {this.props.movies ? this.props.movies.map((movie,index) => {
                         return <Movie key={index} title={movie.Title} year={movie.Year} type={movie.Type} image={movie.Poster} id={movie.imdbID}/>
                     }) : null}
                 </div>}
 
                 {this.props.fetching || this.props.error ? (
-                    <div className='message-container'>
+                    <div data-test='message-container' className='message-container'>
                         {this.displayMessage()}
                     </div>
                 ) : null}
