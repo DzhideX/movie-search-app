@@ -65,10 +65,3 @@ describe('movies action generator', () => {
     });
 
 });
-
-
-        // console.log(getMovies('Avengers').toString());
-        // const movie = getMovies('Avengers');
-        // console.log(movie.toString());
-        // done();
-        // return store.dispatch(getMovies('Avengers')).then(res => console.log(res));
