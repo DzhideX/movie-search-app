@@ -25,7 +25,7 @@ const Movie = ({index,title,image,year,type,id}) => {
     }
 
     return (
-        <div className='movie-thumbnail'>
+        <div data-testid='movie-thumbnail' className='movie-thumbnail'>
             {!hovered && <div className='movie-thumbnail__no-info' onMouseEnter={toggleHover}>
             {image === 'N/A' ? <img className='movie-thumbnail-no-image-icon' src={noImage} alt='not loaded'/> : <img className='movie-thumbnail__image'  src={image} alt={index}/>} 
             <p className='movie-thumbnail__title'> {title} </p>
