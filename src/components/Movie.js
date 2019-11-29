@@ -24,6 +24,8 @@ const Movie = ({index,title,image,year,type,id}) => {
         setHovered(false);
     }
 
+    const { Title, Rated, Released, Runtime, Genre, Writer, Actors, Plot, Awards, Ratings } = movieData;
+
     return (
         <div data-testid='movie-thumbnail' className='movie-thumbnail'>
             {!hovered && <div className='movie-thumbnail__no-info' onMouseEnter={toggleHover}>
@@ -55,20 +57,20 @@ const Movie = ({index,title,image,year,type,id}) => {
                         <div className='movie-thumbnail-more-info-modal-top'>
                             {image === 'N/A' ? <img className='movie-thumbnail-more-info-modal-no-image-icon' src={noImage} alt='not loaded'/> : <img className='movie-thumbnail-more-info-modal-image'  src={image} alt={index}/>} 
                             <div className='movie-thumbnail-more-info-modal-top-right'>
-                                {movieData.Title !== 'N/A' && <p><span> Title: </span> {movieData.Title}</p>}
-                                {movieData.Rated !== 'N/A' && <p><span> Rated: </span> {movieData.Rated}</p>}
-                                {movieData.Released !== 'N/A' && <p><span> Released: </span> {movieData.Released}</p>}
-                                {movieData.Runtime !== 'N/A' && <p><span> Run time: </span> {movieData.Runtime}</p>}
-                                {movieData.Genre !== 'N/A' && <p><span> Genre: </span> {movieData.Genre}</p>}
-                                {movieData.Writer !== 'N/A' && <p><span> Writer: </span>{movieData.Writer.substring(0,70) + '...'}</p>}
-                                {movieData.Actors !== 'N/A' && <p><span>Actors: </span>{movieData.Actors}</p>}
+                                {Title !== 'N/A' && <p><span> Title: </span> {Title}</p>}
+                                {Rated !== 'N/A' && <p><span> Rated: </span> {Rated}</p>}
+                                {Released !== 'N/A' && <p><span> Released: </span> {Released}</p>}
+                                {Runtime !== 'N/A' && <p><span> Run time: </span> {Runtime}</p>}
+                                {Genre !== 'N/A' && <p><span> Genre: </span> {Genre}</p>}
+                                {Writer !== 'N/A' && <p><span> Writer: </span>{Writer.substring(0,70) + '...'}</p>}
+                                {Actors !== 'N/A' && <p><span>Actors: </span>{Actors}</p>}
                             </div>
                         </div>
                         <div className='movie-thumbnail-more-info-modal-bottom'>
-                            {movieData.Plot !== 'N/A' && <p> <span> Plot: </span>  {movieData.Plot}</p>}
-                            {movieData.Awards !== 'N/A' && <p> <span> Awards: </span>  {movieData.Awards}</p>}
+                            {Plot !== 'N/A' && <p> <span> Plot: </span>  {movieData.Plot}</p>}
+                            {Awards !== 'N/A' && <p> <span> Awards: </span>  {movieData.Awards}</p>}
                             <div className='movie-thumbnail-more-info-modal-bottom-cards'>
-                                {movieData.Ratings.length > 0 && movieData.Ratings.map(rating => <MovieRating rating={rating}/>)}
+                                {Ratings.length > 0 && movieData.Ratings.map(rating => <MovieRating rating={rating}/>)}
                             </div>
                         </div>
                     </div>

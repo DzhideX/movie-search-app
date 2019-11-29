@@ -16,12 +16,18 @@ describe('App component', () => {
         const input = getByTestId('navigation-input');
         const button = getByTestId('navigation-search-button');
 
-        fireEvent.change(input, { target: {value: 'Avengers' } });
-        fireEvent.click(button);
+        setTimeout(() =>{
+            fireEvent.change(input, { target: {value: 'Avengers' } });
+            fireEvent.click(button);
+        },0);
 
-        await wait(() => getByTestId('movie-thumbnail'));
+        await waitForDomChange().then(() => {
+            console.log('changed!');
+        });
 
-        debug();
+        // await wait(() => getByTestId('movie-thumbnail'));
+
+        // debug();
 
     });
 
