@@ -3,6 +3,7 @@ import noImage from '../images/340719-200.png';
 import Modal from 'react-modal';
 import axios from 'axios';
 import MovieRating from './MovieRating';
+import _ from 'lodash';
 
 const Movie = ({index,title,image,year,type,id}) => {
 
@@ -25,6 +26,7 @@ const Movie = ({index,title,image,year,type,id}) => {
     }
 
     const { Title, Rated, Released, Runtime, Genre, Writer, Actors, Plot, Awards, Ratings } = movieData;
+    const movieDataObj = {Title,Rated, Released,Runtime,Genre,Writer, Actors};
 
     return (
         <div data-testid='movie-thumbnail' className='movie-thumbnail'>
@@ -57,13 +59,13 @@ const Movie = ({index,title,image,year,type,id}) => {
                         <div className='movie-thumbnail-more-info-modal-top'>
                             {image === 'N/A' ? <img className='movie-thumbnail-more-info-modal-no-image-icon' src={noImage} alt='not loaded'/> : <img className='movie-thumbnail-more-info-modal-image'  src={image} alt={index}/>} 
                             <div className='movie-thumbnail-more-info-modal-top-right'>
-                                {Title !== 'N/A' && <p><span> Title: </span> {Title}</p>}
-                                {Rated !== 'N/A' && <p><span> Rated: </span> {Rated}</p>}
-                                {Released !== 'N/A' && <p><span> Released: </span> {Released}</p>}
-                                {Runtime !== 'N/A' && <p><span> Run time: </span> {Runtime}</p>}
-                                {Genre !== 'N/A' && <p><span> Genre: </span> {Genre}</p>}
-                                {Writer !== 'N/A' && <p><span> Writer: </span>{Writer.substring(0,70) + '...'}</p>}
-                                {Actors !== 'N/A' && <p><span>Actors: </span>{Actors}</p>}
+                                {_.keys(movieDataObj).map(key => {
+                                    if(key === 'Writer'){
+                                        return key !== 'N/A' && <p><span> Writer: </span>{Writer.substring(0,70) + '...'}</p>
+                                    }else{
+                                        return key !== 'N/A' && <p><span> {key}: </span>{movieDataObj[key]}</p>
+                                    }
+                                } )}
                             </div>
                         </div>
                         <div className='movie-thumbnail-more-info-modal-bottom'>

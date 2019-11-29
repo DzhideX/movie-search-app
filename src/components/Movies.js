@@ -2,36 +2,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Movie from './Movie';
 
-export class Movies extends React.Component {
+export const Movies = ({fetching, error, movies}) => {
 
-    displayMessage = () => {
-        if(this.props.fetching){
-            return <p className='message-container__message'> Loading.. </p>
-        }else if(this.props.error){
-            return <p className='message-container__message'> No movie found with that name. Try again! </p>
-        }
-    }
-    
-    render(){
         return(
             <React.Fragment>
-                { !(this.props.fetching || this.props.error) && 
+                { !(fetching || error) && 
                 <div data-test='movies-container-large' className='movies-container-large'>
-                    {this.props.movies ? this.props.movies.map((movie,index) => {
+                    {movies && movies.map((movie,index) => {
                         return <Movie key={index} title={movie.Title} year={movie.Year} type={movie.Type} image={movie.Poster} id={movie.imdbID}/>
-                    }) : null}
+                    })}
                 </div>}
 
-                {this.props.fetching || this.props.error ? (
+                {(fetching || error) && (
                     <div data-test='message-container' className='message-container'>
-                        {this.displayMessage()}
+                        {fetching ? <p className='message-container__message'> Loading.. </p> :
+                        error ? <p className='message-container__message'> No movie found with that name. Try again! </p>:
+                        null}
                     </div>
-                ) : null}
+                )}
                 
             </React.Fragment>
             
         );
-    }
 };
 
 const mapStateToProps = (state) => ({  movies: state.movies, fetched: state.fetched, fetching: state.fetching, error: state.error });
