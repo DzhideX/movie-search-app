@@ -7,7 +7,7 @@ export const Movies = ({fetching, error, movies}) => {
         return(
             <React.Fragment>
                 { !(fetching || error) && 
-                <div data-test='movies-container-large' className='movies-container-large'>
+                <div data-testid='movies-container-large' data-test='movies-container-large' className='movies-container-large'>
                     {movies && movies.map((movie,index) => {
                         return <Movie key={index} title={movie.Title} year={movie.Year} type={movie.Type} image={movie.Poster} id={movie.imdbID}/>
                     })}
